@@ -1,7 +1,7 @@
 export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:5000/api/v1";
+  process.env.NEXT_API_BASE_URL ?? "http://localhost:5000/api/v1";
 
-export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+export const APP_URL = process.env.NEXT_APP_URL ?? "http://localhost:3000";
 
 export const ADMIN_TOKEN_KEY = "admin_token";
 
