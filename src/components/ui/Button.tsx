@@ -16,8 +16,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const VARIANT_CLASSES: Record<Variant, string> = {
   primary:
-    "bg-espresso text-ivory hover:bg-espresso-light active:bg-espresso-dark disabled:bg-ink/30",
-  secondary: "bg-saffron-500 text-espresso hover:bg-saffron-600 disabled:bg-saffron-100",
+    "bg-espresso text-white shadow-sm hover:bg-espresso-light hover:shadow-md active:bg-espresso-dark disabled:bg-ink/30",
+  secondary: "bg-saffron-500 text-white shadow-sm hover:bg-saffron-600 hover:shadow-md disabled:bg-saffron-100",
   ghost: "bg-transparent text-ink hover:bg-ink/5 disabled:text-ink/30",
   outline: "bg-transparent border border-ink/20 text-ink hover:bg-ink/5 disabled:text-ink/30",
   danger: "bg-clay-500 text-ivory hover:bg-clay-600 disabled:bg-clay-500/40",
@@ -47,7 +47,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       ref={ref}
       disabled={disabled || isLoading}
       className={clsx(
-        "inline-flex items-center justify-center rounded-ticket font-medium transition-colors duration-150",
+        "inline-flex items-center justify-center rounded-ticket font-medium transition-all duration-150 hover:-translate-y-px active:translate-y-0",
         "focus-visible:ring-2 focus-visible:ring-saffron-500 focus-visible:ring-offset-2 focus-visible:ring-offset-ivory",
         "disabled:cursor-not-allowed",
         VARIANT_CLASSES[variant],

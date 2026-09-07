@@ -4,6 +4,11 @@
 
 @layer base {
   :root {
+    --crushed-berry: #880d1e;
+    --raspberry: #dd2d4a;
+    --bubblegum-pink: #f26a8d;
+    --pink-mist: #f49cbb;
+    --light-cyan: #cbeef3;
     /* System-first font stacks keep the app buildable and usable offline.
        A self-hosted brand font can later replace either variable safely. */
     --font-fraunces: Georgia, "Times New Roman", serif;
@@ -16,7 +21,12 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-ivory text-ink antialiased;
+    @apply text-ink antialiased;
+    background-color: var(--light-cyan);
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(244, 156, 187, 0.38), transparent 29rem),
+      radial-gradient(circle at 100% 100%, rgba(203, 238, 243, 0.95), transparent 32rem);
+    background-attachment: fixed;
   }
   ::selection {
     @apply bg-saffron-300/60 text-ink;
@@ -38,15 +48,13 @@
 }
 
 @layer components {
-  /* The "ticket" card is the recurring motif of the product: the customer's
-     feedback card and the admin's tenant/QR cards all read like a printed
-     receipt rather than a generic rounded SaaS panel. */
+  /* Shared elevated surface for feedback, admin, and QR cards. */
   .ticket-card {
-    @apply relative bg-white rounded-ticket shadow-ticket border border-ink/10;
+    @apply relative overflow-hidden rounded-ticket border border-raspberry/10 bg-white/90 shadow-ticket backdrop-blur-sm;
   }
   .ticket-card::before {
     content: "";
-    @apply absolute inset-x-0 top-0 h-1.5 rounded-t-ticket bg-saffron-500;
+    @apply absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crushed-berry via-raspberry to-bubblegum-pink;
   }
   .ticket-edge {
     background-image: radial-gradient(circle, transparent 0 3px, white 3px);
@@ -55,6 +63,6 @@
     height: 8px;
   }
   .skeleton {
-    @apply bg-ink/5 bg-shimmer bg-[length:400px_100%] animate-shimmer rounded;
+    @apply rounded bg-raspberry/5 bg-shimmer bg-[length:400px_100%] animate-shimmer;
   }
 }

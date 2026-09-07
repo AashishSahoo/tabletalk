@@ -21,8 +21,8 @@ export default function QRCodeCard({ tenant }: { tenant: Tenant }) {
     }
 
     const canvas = document.createElement("canvas");
-    canvas.width = 720;
-    canvas.height = 840;
+    canvas.width = 1_000;
+    canvas.height = 1_400;
     const context = canvas.getContext("2d");
     if (!context) return null;
 
@@ -30,34 +30,27 @@ export default function QRCodeCard({ tenant }: { tenant: Tenant }) {
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "#ffffff";
     context.beginPath();
-    context.roundRect(40, 40, 640, 760, 24);
+    context.roundRect(40, 40, 920, 1_320, 28);
     context.fill();
 
     context.fillStyle = "#1f2937";
-    context.font = "600 36px Arial, sans-serif";
+    context.font = "600 46px Arial, sans-serif";
     context.textAlign = "center";
-    drawCenteredLines(context, tenant.name, 360, 125, 44, 580);
+    drawCenteredLines(context, tenant.name, 500, 145, 54, 820);
     context.fillStyle = "#6b7280";
-    context.font = "24px Arial, sans-serif";
-    context.fillText("Scan to leave feedback", 360, 215);
+    context.font = "28px Arial, sans-serif";
+    context.fillText("Scan to leave feedback", 500, 245);
 
-    context.fillStyle = "#ffffff";
-    context.strokeStyle = "#e5e7eb";
-    context.lineWidth = 2;
-    context.beginPath();
-    context.roundRect(215, 255, 290, 290, 18);
-    context.fill();
-    context.stroke();
     context.imageSmoothingEnabled = false;
-    context.drawImage(qrCanvas, 260, 300, 200, 200);
+    context.drawImage(qrCanvas, 70, 320, 860, 860);
     context.imageSmoothingEnabled = true;
 
     context.fillStyle = "#6b7280";
-    context.font = "20px Arial, sans-serif";
-    drawCenteredLines(context, splitLongText(destination, 34), 360, 605, 30, 580);
+    context.font = "26px Arial, sans-serif";
+    context.fillText("Point your camera at the code", 500, 1_245);
     context.fillStyle = "#1f2937";
-    context.font = "600 22px Arial, sans-serif";
-    context.fillText("Thank you for your feedback", 360, 735);
+    context.font = "600 30px Arial, sans-serif";
+    context.fillText("Thank you for your feedback", 500, 1_310);
 
     return canvas;
   }
@@ -94,7 +87,7 @@ export default function QRCodeCard({ tenant }: { tenant: Tenant }) {
     image.alt = `${tenant.name} feedback QR card`;
     image.style.display = "block";
     image.style.width = "100%";
-    image.style.maxWidth = "720px";
+    image.style.maxWidth = "1000px";
     image.style.margin = "0 auto";
     image.onload = () => {
       printWindow.focus();
@@ -155,7 +148,7 @@ export default function QRCodeCard({ tenant }: { tenant: Tenant }) {
       <div className="mt-6 grid grid-cols-1 gap-2 print:hidden sm:grid-cols-2">
         <Button variant="outline" onClick={handleDownload}>
           <Icon icon="mdi:download" width={18} height={18} />
-          Download card
+          Download QR Code
         </Button>
         <Button variant="outline" onClick={handlePrint}>
           <Icon icon="mdi:printer-outline" width={18} height={18} />
@@ -198,8 +191,4 @@ function drawCenteredLines(
 
   const startY = firstLineY - ((lines.length - 1) * lineHeight) / 2;
   lines.forEach((lineText, index) => context.fillText(lineText, centerX, startY + index * lineHeight));
-}
-
-function splitLongText(value: string, charactersPerChunk: number): string {
-  return value.match(new RegExp(`.{1,${charactersPerChunk}}`, "g"))?.join(" ") ?? value;
 }

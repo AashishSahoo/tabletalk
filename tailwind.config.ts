@@ -1,45 +1,57 @@
 import type { Config } from "tailwindcss";
 
-// Design tokens for the "receipt ticket" visual language used across the
-// customer feedback flow and the admin dashboard. See DESIGN.md for the
-// rationale behind the palette and type choices.
+// Shared visual tokens. Semantic names keep the components decoupled from the
+// brand palette, so a palette change does not alter app behaviour.
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
+        crushed: {
+          berry: "#880D1E",
+        },
+        raspberry: "#DD2D4A",
+        bubblegum: {
+          pink: "#F26A8D",
+        },
+        pink: {
+          mist: "#F49CBB",
+        },
+        light: {
+          cyan: "#CBEEF3",
+        },
         ink: {
-          DEFAULT: "#241C12",
-          soft: "#4A4034",
-          muted: "#8A7F6E",
+          DEFAULT: "#3C1020",
+          soft: "#661B31",
+          muted: "#936271",
         },
         ivory: {
-          DEFAULT: "#FBF7F0",
-          dim: "#F2ECE1",
+          DEFAULT: "#F7FCFD",
+          dim: "#E7F8FA",
         },
         espresso: {
-          DEFAULT: "#241C12",
-          light: "#3A2E1F",
-          dark: "#160F09",
+          DEFAULT: "#880D1E",
+          light: "#A5172D",
+          dark: "#640715",
         },
         saffron: {
-          50: "#FDF4E3",
-          100: "#FBE7BE",
-          300: "#F3C264",
-          500: "#E8A33D",
-          600: "#C87F1F",
-          700: "#9C6216",
+          50: "#FFF1F5",
+          100: "#FDE0E8",
+          300: "#F49CBB",
+          500: "#DD2D4A",
+          600: "#B91E39",
+          700: "#880D1E",
         },
         pine: {
-          50: "#EAF0EA",
-          200: "#B7CCB9",
-          500: "#3E5C41",
-          600: "#2F4538",
-          700: "#233A2A",
+          50: "#E8F9FB",
+          200: "#B4E4EB",
+          500: "#167785",
+          600: "#0E6170",
+          700: "#094C58",
         },
         clay: {
-          500: "#B5533C",
-          600: "#9A422E",
+          500: "#DD2D4A",
+          600: "#B91E39",
         },
       },
       fontFamily: {
@@ -47,10 +59,10 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        ticket: "0.375rem",
+        ticket: "0.875rem",
       },
       boxShadow: {
-        ticket: "0 1px 2px rgba(36, 28, 18, 0.06), 0 8px 24px -12px rgba(36, 28, 18, 0.25)",
+        ticket: "0 2px 4px rgba(136, 13, 30, 0.04), 0 18px 45px -22px rgba(136, 13, 30, 0.24)",
       },
       keyframes: {
         "pop-in": {
@@ -74,7 +86,7 @@ const config: Config = {
       },
       backgroundImage: {
         shimmer:
-          "linear-gradient(90deg, rgba(36,28,18,0.04) 0px, rgba(36,28,18,0.10) 40px, rgba(36,28,18,0.04) 80px)",
+          "linear-gradient(90deg, rgba(221,45,74,0.04) 0px, rgba(244,156,187,0.22) 40px, rgba(221,45,74,0.04) 80px)",
       },
     },
   },

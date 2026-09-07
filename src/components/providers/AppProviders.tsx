@@ -21,17 +21,17 @@ export default function AppProviders({ children }: { children: ReactNode }) {
         toastOptions={{
           duration: 4000,
           style: {
-            background: "#241C12",
-            color: "#FBF7F0",
+            background: "#880D1E",
+            color: "#FFFFFF",
             fontSize: "0.875rem",
             borderRadius: "0.5rem",
             padding: "10px 14px",
           },
           success: {
-            iconTheme: { primary: "#3E5C41", secondary: "#FBF7F0" },
+            iconTheme: { primary: "#CBEEF3", secondary: "#880D1E" },
           },
           error: {
-            iconTheme: { primary: "#B5533C", secondary: "#FBF7F0" },
+            iconTheme: { primary: "#F49CBB", secondary: "#880D1E" },
           },
         }}
       />

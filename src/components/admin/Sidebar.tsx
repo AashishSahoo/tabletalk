@@ -30,12 +30,12 @@ export default function Sidebar() {
       )}
       <aside
         className={clsx(
-          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col bg-espresso text-ivory transition-transform duration-200 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-pink-mist/20 bg-espresso text-ivory shadow-2xl shadow-crushed-berry/20 transition-transform duration-200 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         <div className="flex items-center gap-2 px-6 py-6">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-saffron-500 text-espresso">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-light-cyan text-crushed-berry shadow-sm">
             <Icon icon="mdi:qrcode-scan" width={20} height={20} />
           </span>
           <span className="font-display text-lg">TableTalk</span>
@@ -50,7 +50,7 @@ export default function Sidebar() {
                 onClick={close}
                 className={clsx(
                   "flex items-center gap-3 rounded-ticket px-3 py-2.5 text-sm transition-colors",
-                  active ? "bg-ivory/10 text-ivory" : "text-ivory/70 hover:bg-ivory/5"
+                  active ? "bg-white/15 text-white" : "text-ivory/75 hover:bg-white/10"
                 )}
               >
                 <Icon icon={item.icon} width={20} height={20} />
