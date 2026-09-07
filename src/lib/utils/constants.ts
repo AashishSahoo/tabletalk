@@ -1,8 +1,8 @@
-export const API_BASE_URL = process.env.NEXT_API_BASE_URL;
-//  ?? "http://localhost:5000/api/v1";
+// Requests stay same-origin. next.config.js proxies this path to the backend,
+// which owns the API version.
+export const API_BASE_URL = "/api";
 
-export const APP_URL = process.env.NEXT_APP_URL;
-// ?? "http://localhost:3000";
+export const APP_URL = process.env.APP_URL ?? "http://localhost:3000";
 
 export const ADMIN_TOKEN_KEY = "admin_token";
 

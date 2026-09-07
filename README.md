@@ -27,7 +27,7 @@ implementation, only the JSON shapes documented below.
 
 ```bash
 npm install
-cp .env.example .env.local   # point NEXT_PUBLIC_API_BASE_URL at your backend
+cp .env.example .env.local   # set API_URL to your backend origin
 npm run dev
 ```
 
@@ -84,8 +84,8 @@ src/
 
 ## Backend API contract
 
-All endpoints are prefixed with `NEXT_PUBLIC_API_BASE_URL`
-(e.g. `http://localhost:5000/api/v1`). Every response follows the same
+All browser requests use the same-origin `/api` path. Next.js proxies this to
+`API_URL`; the backend selects and owns the API version. Every response follows the same
 envelope:
 
 ```ts
